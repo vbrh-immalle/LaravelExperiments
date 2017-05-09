@@ -4,16 +4,16 @@
 - create a database and schema in MySQL
     - you can run 1 sql command as root : `mysql -u root -p -e "show databases"`
     - can be handier to get interactive mysql prompt : `mysql -u root -p`
-    - copy/paste this code to create a user, database-schema and give all permissions
+    - copy/paste this code to create a user `imma` with password `immapwd`, database-schema `larablog` and give all permissions
 
 ```
-CREATE USER 'imma2'@'localhost' IDENTIFIED BY 'imma2pwd';
-CREATE DATABASE larablog3;
-GRANT ALL ON larablog3.* TO 'imma2'@'localhost';
+CREATE USER 'imma'@'localhost' IDENTIFIED BY 'immapwd';
+CREATE DATABASE larablog;
+GRANT ALL ON larablog.* TO 'imma'@'localhost';
 FLUSH PRIVILEGES;`
 ```
-    - want to delete the schema?
-        - `DROP DATABASE larablog`
+- want to delete the schema?
+    - `DROP DATABASE larablog`
 - copy `.env.example` to `.env` and edit the database-credentials
 - run `php migrate:refresh --seed` to create and populate tables
 - run `php artisan serve`
