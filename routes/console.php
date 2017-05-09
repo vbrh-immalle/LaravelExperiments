@@ -16,3 +16,12 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('users', function() {
+    DB::table('users')->orderBy('id')->chunk(1, function($users) {
+        $this->info("next page :");
+        foreach($users as $user) {
+            $this->comment($user->name . " (" . $user->birthdate . ")" . ": " . $user->email);
+        }
+    });
+})->describe('Show all users, their e-mail and birthday');
