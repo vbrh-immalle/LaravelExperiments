@@ -22,3 +22,33 @@ FLUSH PRIVILEGES;`
     - visit http://localhost:8000/users/1
     - visit http://localhost:8000/messages
     - visit http://localhost:8000/messages/1
+
+# Using faker
+
+## Directly
+
+With `tinker` you can directly use Faker.
+
+```
+$f = Faker\Factory::create()
+$f->name()
+$f->text()
+$f->date()
+```
+
+See https://github.com/fzaninotto/Faker for more examples.
+
+## With Laravel's Model Factories
+
+The model factories are defined in `database/factories/ModelFactory.php`.
+
+Check out the model factories for `App\User` and `App\Message`.
+
+Try this in `tinker`:
+
+```
+factory(App\User::class)->make()
+factory(App\Message::class, 3)->make()
+```
+
+Also check https://laravel.com/docs/5.4/database-testing#using-factories
