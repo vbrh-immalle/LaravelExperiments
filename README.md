@@ -15,6 +15,7 @@ FLUSH PRIVILEGES;`
 - want to delete the schema?
     - `DROP DATABASE larablog`
 - copy `.env.example` to `.env` and edit the database-credentials
+- run `php artisan key:generate` to generate a new application key in the `.env`-file
 - run `php migrate:refresh --seed` to create and populate tables
 - run `php artisan serve`
     - visit http://localhost:8000/users
