@@ -24,5 +24,8 @@ class UsersTableSeeder extends Seeder
             'birthdate' => Carbon\Carbon::parse('2001-01-13'),
             'password' => bcrypt("jantjepwd")
         ]);
+
+        // create 10 additional random users
+        factory(App\User::class, 10)->create();
     }
 }

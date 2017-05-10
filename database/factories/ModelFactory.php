@@ -30,6 +30,7 @@ $factory->define(App\Message::class, function (Faker\Generator $faker) {
         'content' => $faker->text,
         'user_id' => function () {
             // create a new user for every created message
+            // when using this factory, you can override this property to use existing users
             return factory(App\User::class)->create()->id;
         },
     ];
